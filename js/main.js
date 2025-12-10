@@ -227,4 +227,129 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Uncomment to enable tracking lines effect
   // createTrackingLines();
+
+  // Accessibility floating menu
+  const accessibilityToggle = document.querySelector(".accessibility-toggle");
+  const accessibilityPanel = document.getElementById("accessibility-panel");
+  const ACCESS_PREF_KEY = "accessibility-preferences-v1";
+
+  function loadAccessibilityPrefs() {
+    try {
+      const stored = window.localStorage.getItem(ACCESS_PREF_KEY);
+      if (!stored)
+        return { fontScale: 0, contrast: false, motion: false };
+      const parsed = JSON.parse(stored);
+      return {
+        fontScale: Number.isFinite(parsed.fontScale)
+          ? parsed.fontScale
+          : parsed.fontSize
+          ? 1
+          : 0,
+        contrast: Boolean(parsed.contrast),
+        motion: Boolean(parsed.motion),
+      };
+    } catch (e) {
+      return { fontScale: 0, contrast: false, motion: false };
+    }
+  }
+
+  function saveAccessibilityPrefs(prefs) {
+    try {
+      window.localStorage.setItem(ACCESS_PREF_KEY, JSON.stringify(prefs));
+    } catch (e) {
+      // Ignore storage errors (private mode, etc.)
+    }
+  }
+
+  function applyAccessibilityPrefs(prefs) {
+    const body = document.body;
+    if (!body) return;
+
+    const clampedScale = Math.max(0, Math.min(3, Number(prefs.fontScale) || 0));
+    prefs.fontScale = clampedScale;
+
+    const scaleValue = 1 + clampedScale * 0.25; // 0 -> 1, 3 -> 1.75
+    document.documentElement.style.setProperty(
+      "--font-scale",
+      String(scaleValue)
+    );
+
+    body.classList.toggle("accessibility-high-contrast", prefs.contrast);
+    body.classList.toggle("accessibility-reduce-motion", prefs.motion);
+
+    if (accessibilityPanel) {
+      const optionButtons = accessibilityPanel.querySelectorAll(
+        ".accessibility-option"
+      );
+      optionButtons.forEach((btn) => {
+        const action = btn.getAttribute("data-action");
+        if (action === "contrast") {
+          btn.setAttribute("aria-pressed", String(Boolean(prefs.contrast)));
+        } else if (action === "motion") {
+          btn.setAttribute("aria-pressed", String(Boolean(prefs.motion)));
+        }
+      });
+
+      const fontIndicator = accessibilityPanel.querySelector(
+        ".accessibility-font-indicator"
+      );
+      if (fontIndicator) {
+        const percent = Math.round(scaleValue * 100);
+        fontIndicator.textContent = `Tamanho do texto: ${percent}%`;
+      }
+    }
+  }
+
+  const accessibilityPrefs = loadAccessibilityPrefs();
+  applyAccessibilityPrefs(accessibilityPrefs);
+
+  if (accessibilityToggle && accessibilityPanel) {
+    accessibilityToggle.addEventListener("click", () => {
+      const isOpen =
+        accessibilityToggle.getAttribute("aria-expanded") === "true";
+      accessibilityToggle.setAttribute("aria-expanded", String(!isOpen));
+      accessibilityPanel.hidden = isOpen;
+      if (!isOpen) {
+        accessibilityPanel.focus && accessibilityPanel.focus();
+      }
+    });
+
+    accessibilityPanel.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" || event.key === "Esc") {
+        accessibilityPanel.hidden = true;
+        accessibilityToggle.setAttribute("aria-expanded", "false");
+        accessibilityToggle.focus();
+      }
+    });
+
+    const optionButtons = accessibilityPanel.querySelectorAll(
+      ".accessibility-option"
+    );
+
+    optionButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const action = btn.getAttribute("data-action");
+        if (!action) return;
+
+        if (action === "font-increase") {
+          accessibilityPrefs.fontScale = Math.min(
+            3,
+            Number(accessibilityPrefs.fontScale) + 1 || 1
+          );
+        } else if (action === "font-decrease") {
+          accessibilityPrefs.fontScale = Math.max(
+            0,
+            Number(accessibilityPrefs.fontScale) - 1 || 0
+          );
+        } else if (action === "contrast") {
+          accessibilityPrefs.contrast = !accessibilityPrefs.contrast;
+        } else if (action === "motion") {
+          accessibilityPrefs.motion = !accessibilityPrefs.motion;
+        }
+
+        applyAccessibilityPrefs(accessibilityPrefs);
+        saveAccessibilityPrefs(accessibilityPrefs);
+      });
+    });
+  }
 });

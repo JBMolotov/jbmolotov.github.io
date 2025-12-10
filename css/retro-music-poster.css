@@ -390,6 +390,7 @@
   position: absolute;
   left: 22%;
   top: 57%;
+  white-space: nowrap;
 }
 
 .contact-email:hover {
@@ -446,7 +447,7 @@
 
   .contact-email {
     font-size: 1.2rem;
-    left: 20%;
+    left: 18%;
   }
 
   .info-banner {
@@ -515,7 +516,7 @@
     margin: 0 auto 12px;
     padding: 12px 16px;
     width: 100%;
-    max-width: 320px;
+    max-width: 360px;
     text-align: center;
     font-size: 1rem;
     z-index: 10;
@@ -523,6 +524,7 @@
     border-radius: 30px;
     color: var(--primary);
     border: 1px solid var(--primary);
+    white-space: nowrap;
   }
 
   /* Versão mobile do contato */

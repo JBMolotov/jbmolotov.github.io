@@ -28,8 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Typewriter effect
   const typedTextSpan = document.querySelector(".typed-text");
   const cursorSpan = document.querySelector(".cursor");
-
-  const textArray = [
+  const typingDelay = 100;
+  const erasingDelay = 50;
+  const newTextDelay = 2000;
+  
+  let textArray = window.initialTypewriterTexts || [
     "Automação",
     "Inteligência Artificial",
     "Machine Learning",
@@ -37,11 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "Web Full Stack",
     "LLMs",
   ];
-  const typingDelay = 100;
-  const erasingDelay = 50;
-  const newTextDelay = 2000; // Delay between current and next text
+  
   let textArrayIndex = 0;
   let charIndex = 0;
+  let typeTimeout;
+  let eraseTimeout;
 
   function type() {
     if (charIndex < textArray[textArrayIndex].length) {
@@ -49,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
         cursorSpan.classList.add("typing");
       typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
       charIndex++;
-      setTimeout(type, typingDelay);
+      typeTimeout = setTimeout(type, typingDelay);
     } else {
       cursorSpan.classList.remove("typing");
-      setTimeout(erase, newTextDelay);
+      eraseTimeout = setTimeout(erase, newTextDelay);
     }
   }
 
@@ -65,16 +68,38 @@ document.addEventListener("DOMContentLoaded", function () {
         charIndex - 1
       );
       charIndex--;
-      setTimeout(erase, erasingDelay);
+      eraseTimeout = setTimeout(erase, erasingDelay);
     } else {
       cursorSpan.classList.remove("typing");
       textArrayIndex++;
       if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-      setTimeout(type, typingDelay + 1100);
+      typeTimeout = setTimeout(type, typingDelay + 1100);
     }
   }
 
-  if (textArray.length) setTimeout(type, newTextDelay + 250);
+  function startTypewriter() {
+      if (textArray.length) setTimeout(type, newTextDelay + 250);
+  }
+
+  startTypewriter();
+
+  // Expose restart function for language switching
+  window.restartTypewriter = function(newTexts) {
+      // Clear existing timeouts
+      clearTimeout(typeTimeout);
+      clearTimeout(eraseTimeout);
+      
+      // Update text
+      textArray = newTexts;
+      
+      // Reset indices
+      textArrayIndex = 0;
+      charIndex = 0;
+      typedTextSpan.textContent = "";
+      
+      // Restart
+      startTypewriter();
+  };
 
   // Reveal animations on scroll
   const revealElements = document.querySelectorAll(

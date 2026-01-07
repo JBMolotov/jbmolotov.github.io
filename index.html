@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Johnny Silva | Desenvolvedor de Automação e IA</title>
+    <title data-i18n="title-tag">Johnny Silva | Desenvolvedor de Automação e IA</title>
     <link rel="icon" href="images/icon.png" type="image/png" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/analog-controls.css" />
@@ -30,6 +30,11 @@
     />
   </head>
   <body>
+    <div class="language-widget">
+      <button id="language-toggle" class="language-toggle" type="button" aria-label="Mudar idioma / Change language">
+        <span>PT</span>
+      </button>
+    </div>
     <div
       class="accessibility-widget"
       aria-label="Ferramentas de acessibilidade do site"
@@ -51,13 +56,14 @@
         aria-label="Opções de acessibilidade"
         hidden
       >
-        <p class="accessibility-title">Acessibilidade</p>
+        <p class="accessibility-title" data-i18n="access-title">Acessibilidade</p>
         <p class="accessibility-font-indicator">Tamanho do texto: 100%</p>
         <div class="accessibility-font-controls">
           <button
             type="button"
             class="accessibility-option"
             data-action="font-decrease"
+            data-i18n="access-font-dec"
           >
             Diminuir fonte
           </button>
@@ -65,6 +71,7 @@
             type="button"
             class="accessibility-option"
             data-action="font-increase"
+            data-i18n="access-font-inc"
           >
             Aumentar fonte
           </button>
@@ -74,6 +81,7 @@
           class="accessibility-option"
           data-action="contrast"
           aria-pressed="false"
+          data-i18n="access-contrast"
         >
           Alto contraste
         </button>
@@ -82,6 +90,7 @@
           class="accessibility-option"
           data-action="motion"
           aria-pressed="false"
+          data-i18n="access-motion"
         >
           Reduzir animações
         </button>
@@ -102,10 +111,10 @@
         </div>
         <nav aria-label="Navegação principal">
           <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#home" class="active" data-i18n="nav-home">Home</a></li>
+            <li><a href="#sobre" data-i18n="nav-about">Sobre</a></li>
+            <li><a href="#projetos" data-i18n="nav-projects">Projetos</a></li>
+            <li><a href="#contato" data-i18n="nav-contact">Contato</a></li>
           </ul>
         </nav>
       </div>
@@ -117,9 +126,9 @@
           <div class="hero-content">
             <div class="hero-text">
               <div class="intro-text">
-                <h3 class="greeting">Olá, eu sou</h3>
+                <h3 class="greeting" data-i18n="hero-greeting">Olá, eu sou</h3>
                 <h1 class="vintage-text">Johnny Silva</h1>
-                <h2 class="role">Desenvolvedor</h2>
+                <h2 class="role" data-i18n="hero-role">Desenvolvedor</h2>
                 <div class="typewriter-container">
                   <h3 class="typewriter">
                     <span class="typed-text"></span
@@ -128,8 +137,8 @@
                 </div>
               </div>
               <div class="cta-buttons">
-                <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-                <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
+                <a href="#projetos" class="btn btn-primary" data-i18n="hero-cta-projects">Ver Projetos</a>
+                <a href="#contato" class="btn btn-outline" data-i18n="hero-cta-contact">Entrar em Contato</a>
               </div>
             </div>
             <div class="hero-image">
@@ -148,47 +157,47 @@
 
       <section id="sobre" class="about">
         <div class="container">
-          <h2 class="section-title">Sobre Mim</h2>
+          <h2 class="section-title" data-i18n="about-title">Sobre Mim</h2>
           <div class="about-content">
             <div class="about-image">
               <div class="polaroid">
                 <img src="images/eu.png" alt="Eu, bem bonito" />
-                <div class="caption">Esse sou eu</div>
+                <div class="caption" data-i18n="about-polaroid-caption">Esse sou eu</div>
                 <!-- Nem me acho tão bonito assim -->
               </div>
             </div>
             <div class="about-text">
-              <h3>Desenvolvedor de Automação & IA</h3>
-              <p>
+              <h3 data-i18n="about-role-title">Desenvolvedor de Automação & IA</h3>
+              <p data-i18n="about-text-1">
                 Olá! Sou Johnny, um desenvolvedor apaixonado por criar soluções
                 tecnológicas que resolvem problemas reais. Com experiência em
                 automação, desenvolvimento FullStack e inteligência artificial
                 generativa.
               </p>
-              <p>
+              <p data-i18n="about-text-2">
                 Minha jornada na programação começou com 16, quando entrei no
                 meu curso de informática na ETEC. Desde então (hoje com 25 ou
                 mais dependendo de quando você está lendo), venho aprimorando
                 minhas habilidades e expandindo meu conhecimento em diversas
                 áreas da tecnologia.
               </p>
-              <p>
+              <p data-i18n="about-text-3">
                 Quando não estou codando, gosto de esportes, sair com amigos e
                 trabalhar em projetos pessoais que geralmente só servem para me
                 tirar sorrisos.
               </p>
               <div class="personal-info">
                 <div class="info-item">
-                  <h4>Experiência</h4>
-                  <p>5+ Anos</p>
+                  <h4 data-i18n="about-stats-exp">Experiência</h4>
+                  <p data-i18n="about-stats-years">5+ Anos</p>
                 </div>
                 <div class="info-item">
-                  <h4>Projetos</h4>
+                  <h4 data-i18n="about-stats-projects">Projetos</h4>
                   <p>20+</p>
                 </div>
                 <div class="info-item">
-                  <h4>Fatias de pizza</h4>
-                  <p>10+ (em rodízio)</p>
+                  <h4 data-i18n="about-stats-pizza">Fatias de pizza</h4>
+                  <p data-i18n="about-stats-pizza-desc">10+ (em rodízio)</p>
                 </div>
               </div>
               <!-- <a href="#" class="btn btn-secondary">Baixar CV</a> -->
@@ -199,7 +208,7 @@
 
       <section id="projetos" class="vinyl-projects">
         <div class="container">
-          <h2 class="section-title">Projetos Selecionados</h2>
+          <h2 class="section-title" data-i18n="projects-title">Projetos Selecionados</h2>
           <div class="vinyl-collection">
             <!-- Vinyl Box 1 -->
             <div class="vinyl-box">
@@ -215,7 +224,7 @@
 
               <div class="vinyl-info">
                 <h3>EcoTutor</h3>
-                <p class="vinyl-project-description">
+                <p class="vinyl-project-description" data-i18n="project-ecotutor-desc">
                   EcoTutor é uma plataforma de tutoria personalizada para
                   hábitos sustentáveis que combina planos personalizados,
                   quizzes e trilhas de aprendizado com suporte prático para
@@ -231,6 +240,7 @@
                 <a
                   href="https://github.com/JBMolotov/ecotutor"
                   class="vinyl-button"
+                  data-i18n="project-btn-details"
                   >Ver Detalhes</a
                 >
               </div>
@@ -250,7 +260,7 @@
 
               <div class="vinyl-info">
                 <h3>SupplyChain Smart Contract</h3>
-                <p class="vinyl-project-description">
+                <p class="vinyl-project-description" data-i18n="project-supplychain-desc">
                   Contrato inteligente para rastreamento de produtos,
                   movimentações, condições de transporte e transferência de
                   posse na cadeia de suprimentos.
@@ -263,6 +273,7 @@
                 <a
                   href="https://github.com/JBMolotov/supplychain-contract"
                   class="vinyl-button"
+                  data-i18n="project-btn-details"
                   >Ver Detalhes</a
                 >
               </div>
@@ -279,7 +290,7 @@
 
               <div class="vinyl-info">
                 <h3>Assistente Jurídico</h3>
-                <p class="vinyl-project-description">
+                <p class="vinyl-project-description" data-i18n="project-lawyer-desc">
                   Baseado em IA para auxiliar advogados e pessoas interessadas
                   em temas legais, fornecendo respostas precisas e contextuais a
                   partir de uma base de dados de legislação e jurisprudência
@@ -293,6 +304,7 @@
                 <a
                   href="https://github.com/JBMolotov/assistente-juridico"
                   class="vinyl-button"
+                  data-i18n="project-btn-details"
                   >Ver Detalhes</a
                 >
               </div>
@@ -303,6 +315,7 @@
             <a
               href="https://github.com/JBMolotov?tab=repositories"
               class="vinyl-view-all-button"
+              data-i18n="project-btn-all"
               >Ver Todos os Projetos</a
             >
           </div>
@@ -313,8 +326,8 @@
         <div class="container">
           <div class="retro-music-poster">
             <div class="retro-title-container">
-              <h2 class="retro-small">Entre em</h2>
-              <h1 class="retro-large">Contato</h1>
+              <h2 class="retro-small" data-i18n="contact-small">Entre em</h2>
+              <h1 class="retro-large" data-i18n="contact-large">Contato</h1>
             </div>
 
             <div class="retro-cassette-container">
@@ -332,7 +345,7 @@
 
                 <!-- Cassette Label -->
                 <div class="retro-cassette-label">
-                  <h3 class="cassette-title">ME MANDA UM OI</h3>
+                  <h3 class="cassette-title" data-i18n="contact-cassette-title">ME MANDA UM OI</h3>
                 </div>
 
                 <!-- Cassette Reels -->
@@ -375,7 +388,7 @@
 
             <!-- Versão simplificada para mobile -->
             <div class="mobile-contact-info">
-              <p class="mobile-contact-text">Entre em contato comigo:</p>
+              <p class="mobile-contact-text" data-i18n="contact-mobile-text">Entre em contato comigo:</p>
               <a
                 href="mailto:johnnyy.br@gmail.com"
                 class="mobile-contact-email"
@@ -386,10 +399,11 @@
                 class="copy-email-btn"
                 type="button"
                 data-email="johnnyy.br@gmail.com"
+                data-i18n="contact-btn-copy"
               >
                 <i class="fas fa-copy"></i> Copiar e-mail
               </button>
-              <p class="mobile-contact-text">Me encontre nas redes sociais:</p>
+              <p class="mobile-contact-text" data-i18n="contact-mobile-social">Me encontre nas redes sociais:</p>
               <div class="mobile-social-links">
                 <a
                   href="https://www.linkedin.com/in/johnnybs99/"
@@ -427,5 +441,7 @@
     <script src="js/cassette-player.js"></script>
     <script src="js/retro-music-poster.js"></script>
     <script src="js/vinyl-projects.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/language-manager.js"></script>
   </body>
 </html>

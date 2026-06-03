@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/vinyl-projects.css" />
     <link rel="stylesheet" href="css/main-hero-vinyl.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/enhanced-about.css" />
+    <link rel="stylesheet" href="css/experience.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -113,6 +115,7 @@
           <ul>
             <li><a href="#home" class="active" data-i18n="nav-home">Home</a></li>
             <li><a href="#sobre" data-i18n="nav-about">Sobre</a></li>
+            <li><a href="#experiencia" data-i18n="nav-experience">Experiência</a></li>
             <li><a href="#projetos" data-i18n="nav-projects">Projetos</a></li>
             <li><a href="#contato" data-i18n="nav-contact">Contato</a></li>
           </ul>
@@ -169,15 +172,15 @@
             <div class="about-text">
               <h3 data-i18n="about-role-title">Desenvolvedor de Automação & IA</h3>
               <p data-i18n="about-text-1">
-                Olá! Sou Johnny, um desenvolvedor apaixonado por criar soluções
-                tecnológicas que resolvem problemas reais. Com experiência em
-                automação, desenvolvimento FullStack e inteligência artificial
-                generativa.
+                Analista de Engenharia em Automação e Dados com passagem pelo
+                Itaú Unibanco. Especializado em automação, desenvolvimento
+                FullStack e inteligência artificial generativa — com indicação
+                global no NASA Space Apps Hackathon.
               </p>
               <p data-i18n="about-text-2">
                 Minha jornada na programação começou com 16, quando entrei no
-                meu curso de informática na ETEC. Desde então (hoje com 25 ou
-                mais dependendo de quando você está lendo), venho aprimorando
+                curso técnico em Informática na ETEC. Desde então (hoje com 25
+                ou mais dependendo de quando você está lendo), venho aprimorando
                 minhas habilidades e expandindo meu conhecimento em diversas
                 áreas da tecnologia.
               </p>
@@ -201,7 +204,137 @@
                 </div>
               </div>
               <!-- <a href="#" class="btn btn-secondary">Baixar CV</a> -->
+
+              <div class="about-skills">
+                <h4 data-i18n="about-skills-title">Stack Técnica</h4>
+                <div class="skill-group">
+                  <span class="skill-group-label" data-i18n="about-skills-languages">Linguagens</span>
+                  <div class="skill-tags">
+                    <span>Python</span>
+                    <span>TypeScript</span>
+                    <span>JavaScript</span>
+                    <span>SQL</span>
+                    <span>C/C++</span>
+                    <span>Flutter</span>
+                  </div>
+                </div>
+                <div class="skill-group">
+                  <span class="skill-group-label" data-i18n="about-skills-frameworks">Frameworks & Ferramentas</span>
+                  <div class="skill-tags">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>FastAPI</span>
+                    <span>Docker</span>
+                    <span>LangChain</span>
+                    <span>RAG / LLMs</span>
+                  </div>
+                </div>
+                <div class="skill-group">
+                  <span class="skill-group-label" data-i18n="about-skills-db">Banco de Dados</span>
+                  <div class="skill-tags">
+                    <span>MongoDB</span>
+                    <span>CassandraDB</span>
+                    <span>SQL Server</span>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="about-extras">
+            <div class="extras-block">
+              <h4 data-i18n="about-edu-title">Formação</h4>
+              <div class="edu-item">
+                <strong data-i18n="about-edu-1-name">USP São Carlos</strong>
+                <span data-i18n="about-edu-1-degree">Bacharelado em Sistemas de Informação</span>
+                <span class="edu-period" data-i18n="about-edu-1-period">2024 – Presente</span>
+              </div>
+              <div class="edu-item">
+                <strong data-i18n="about-edu-2-name">ETEC Horácio A. da Silveira</strong>
+                <span data-i18n="about-edu-2-degree">Técnico em Informática</span>
+                <span class="edu-period" data-i18n="about-edu-2-period">2016 – 2018</span>
+              </div>
+            </div>
+            <div class="extras-block">
+              <h4 data-i18n="about-awards-title">Prêmios & Reconhecimentos</h4>
+              <ul class="awards-list">
+                <li data-i18n="about-award-1">NASA Space Apps – Indicação Global (2021)</li>
+                <li data-i18n="about-award-2">Hackathon Hackfools – Vencedor (2019)</li>
+                <li data-i18n="about-award-3">Hackathon IFSP – Vencedor (2019)</li>
+                <li data-i18n="about-award-4">Iniciação Científica – Algoritmos Evolutivos (2020)</li>
+              </ul>
+            </div>
+            <div class="extras-block">
+              <h4 data-i18n="about-lang-title">Idiomas</h4>
+              <ul class="lang-list">
+                <li data-i18n="about-lang-pt">Português – Nativo</li>
+                <li data-i18n="about-lang-en">Inglês – B2 (Intermediário-avançado)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiencia" class="experience-section" aria-label="Experiência profissional">
+        <div class="container">
+          <h2 class="section-title" data-i18n="exp-title">Experiência Profissional</h2>
+          <div class="exp-timeline">
+
+            <div class="exp-card exp-featured">
+              <div class="exp-card-header">
+                <div class="exp-company-info">
+                  <h3 class="exp-company-name">Itaú Unibanco</h3>
+                  <p class="exp-role-title" data-i18n="exp-job1-role">Analista de Engenharia em Automação e Dados</p>
+                </div>
+                <div class="exp-card-meta">
+                  <span class="exp-period" data-i18n="exp-job1-period">Mai 2024 – Out 2025</span>
+                  <span class="exp-location" data-i18n="exp-job1-location">São Paulo, SP</span>
+                </div>
+              </div>
+              <ul class="exp-list">
+                <li data-i18n="exp-job1-b1">Liderança em automação com otimização de performance em 25%.</li>
+                <li data-i18n="exp-job1-b2">Dashboards integrados a mais de 10 fontes de dados, acelerando 40% das decisões estratégicas.</li>
+                <li data-i18n="exp-job1-b3">Scripts automatizados reduziram 60% do tempo de relatórios e 15% de erros.</li>
+                <li data-i18n="exp-job1-b4">Atuação em equipes multidisciplinares de TI, Risco e Compliance com metodologia Scrum.</li>
+              </ul>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-company-info">
+                  <h3 class="exp-company-name">Finscool</h3>
+                  <p class="exp-role-title" data-i18n="exp-job2-role">Analista de Engenharia de Software (Freelancer)</p>
+                </div>
+                <div class="exp-card-meta">
+                  <span class="exp-period" data-i18n="exp-job2-period">Ago – Nov 2023</span>
+                  <span class="exp-location" data-i18n="exp-job2-location">Remoto</span>
+                </div>
+              </div>
+              <ul class="exp-list">
+                <li data-i18n="exp-job2-b1">Desenvolveu funcionalidades gamificadas, aumentando engajamento em 50%.</li>
+                <li data-i18n="exp-job2-b2">Implementou testes automatizados, reduzindo bugs em 25%.</li>
+                <li data-i18n="exp-job2-b3">Colaboração com times de design e pedagogia, melhorando avaliações em 30%.</li>
+              </ul>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div class="exp-company-info">
+                  <h3 class="exp-company-name">Liven Tech</h3>
+                  <p class="exp-role-title" data-i18n="exp-job3-role">Estagiário Full Stack</p>
+                </div>
+                <div class="exp-card-meta">
+                  <span class="exp-period" data-i18n="exp-job3-period">Ago 2021 – Mar 2023</span>
+                  <span class="exp-location" data-i18n="exp-job3-location">São Carlos, SP</span>
+                </div>
+              </div>
+              <ul class="exp-list">
+                <li data-i18n="exp-job3-b1">Desenvolvimento do app "Cuidador de Confiança", responsável por 65% do projeto.</li>
+                <li data-i18n="exp-job3-b2">Front-end em React otimizado, melhorando performance em 30%.</li>
+                <li data-i18n="exp-job3-b3">Criação de componentes reutilizáveis, acelerando novos projetos em 15%.</li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </section>

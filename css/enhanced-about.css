@@ -1,0 +1,218 @@
+/* Enhanced About — Skills as amp keys + Education/Awards/Languages as liner notes */
+
+/* ---------- Skills: amplifier keys ---------- */
+.about-skills {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 2px dashed rgba(217, 165, 102, 0.3);
+}
+
+.about-skills h4 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--primary);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-skills h4::before {
+  content: "▤";
+  color: var(--accent);
+}
+
+.skill-group {
+  margin-bottom: 0.9rem;
+}
+
+.skill-group-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(217, 165, 102, 0.65);
+  margin-bottom: 0.5rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.7rem;
+  color: var(--retro-cream);
+  background: linear-gradient(180deg, #2a2a2a 0%, #161616 100%);
+  border: 1px solid var(--wood-dark);
+  border-radius: 3px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  transition: transform 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-tags span:hover {
+  color: var(--primary);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5),
+    inset 0 0 8px rgba(217, 165, 102, 0.25);
+}
+
+/* ---------- Extras: pinned liner-note cards ---------- */
+.about-extras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+  margin-top: 3.5rem;
+  padding-top: 1rem;
+}
+
+.extras-block {
+  position: relative;
+  background-color: var(--retro-cream);
+  color: var(--text-dark);
+  padding: 1.6rem 1.5rem 1.75rem;
+  box-shadow: 6px 7px 0 rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Slight scrapbook tilt, alternating */
+.extras-block:nth-child(1) { transform: rotate(-1.6deg); }
+.extras-block:nth-child(2) { transform: rotate(1deg); }
+.extras-block:nth-child(3) { transform: rotate(-0.8deg); }
+
+.extras-block:hover {
+  transform: rotate(0) translateY(-4px);
+  box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Piece of tape holding the note */
+.extras-block::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 78px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(217, 165, 102, 0.45);
+  border-left: 1px dashed rgba(255, 255, 255, 0.5);
+  border-right: 1px dashed rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.extras-block h4 {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-dark);
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px dashed rgba(140, 86, 55, 0.4);
+}
+
+/* Education */
+.edu-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.edu-item:last-child {
+  margin-bottom: 0;
+}
+
+.edu-item strong {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+
+.edu-item span {
+  font-size: 0.8rem;
+  color: var(--wood-dark);
+  margin-top: 0.15rem;
+  line-height: 1.35;
+}
+
+.edu-period {
+  font-family: var(--font-mono);
+  font-size: 0.7rem !important;
+  font-weight: 700;
+  color: var(--tertiary) !important;
+  margin-top: 0.3rem !important;
+}
+
+/* Awards & Languages lists */
+.awards-list,
+.lang-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.awards-list li,
+.lang-list li {
+  font-size: 0.82rem;
+  color: #2a2218;
+  padding: 0.45rem 0 0.45rem 1.4rem;
+  border-bottom: 1px dashed rgba(140, 86, 55, 0.25);
+  line-height: 1.4;
+  position: relative;
+}
+
+.awards-list li:last-child,
+.lang-list li:last-child {
+  border-bottom: none;
+}
+
+.awards-list li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.lang-list li::before {
+  content: "►";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  color: var(--tertiary);
+  font-size: 0.7rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about-extras {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 1.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-extras {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+    margin-top: 3rem;
+  }
+
+  .extras-block:nth-child(1),
+  .extras-block:nth-child(2),
+  .extras-block:nth-child(3) {
+    transform: rotate(0);
+  }
+}
